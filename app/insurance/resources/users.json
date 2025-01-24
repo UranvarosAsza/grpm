@@ -1,0 +1,11 @@
+[
+    {
+        "username": "alma", 
+        "password": "1234",
+        "fullName" : "Teszt Felhasználó",
+        "userid" : 1,
+        "contractNumber": 123456789,
+        "contractType" : "Folyamatos Díjfizetésű Ultra Prémium Életbiztosítás"
+    }
+   
+]
