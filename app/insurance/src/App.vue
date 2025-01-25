@@ -1,47 +1,34 @@
-<script setup lang="ts">
+<script>
 import NavbarComponent from './components/NavbarComponent.vue'
-import ListComponent from './components/ListComponent.vue'
 import SideBarComponent from './components/SideBarComponent.vue'
+import ListComponent from './components/ListComponent.vue'
+
+export default {
+  components: {
+    ListComponent,
+    NavbarComponent,
+    SideBarComponent,
+  },
+}
 </script>
 
 <template>
-  <header> 
-    <div>
-      <NavbarComponent/>
-    </div>
+  <header>
+    <NavbarComponent />
   </header>
 
-  <main>
-    <SideBarComponent/>
-    <ListComponent/>
+  <main class="container-fluid">
+    <div class="row">
+      <!-- SideBarComponent: 3 oszlop széles minden nézeten nagyobb mint mobil -->
+      <div class="col-md-3 d-none d-md-block">
+        <SideBarComponent />
+      </div>
+      <!-- ListComponent: 8 oszlop széles, mobilon 12 -->
+      <div class="col-md-9 col-12">
+        <ListComponent />
+      </div>
+    </div>
   </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style scoped></style>
