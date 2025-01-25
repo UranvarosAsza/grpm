@@ -20,15 +20,19 @@ export default {
   <main class="container-fluid">
     <div class="row">
       <!-- SideBarComponent: 3 oszlop széles minden nézeten nagyobb mint mobil -->
-      <div class="col-md-3 d-none d-md-block">
+      <div class="col-md-4 d-none d-md-block">
         <SideBarComponent />
       </div>
       <!-- ListComponent: 8 oszlop széles, mobilon 12 -->
-      <div class="col-md-9 col-12">
+      <div class="col-md-8 col-12">
         <ListComponent />
       </div>
     </div>
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  background-color: #fafafc;
+}
+</style>

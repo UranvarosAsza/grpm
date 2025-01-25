@@ -30,9 +30,10 @@ export default {
   background-color: #ffffff;
   color: #0a113d;
   height: 80px;
-  box-shadow:
-    5px,
-    5px gray;
+  box-shadow: 2px 2px 2px 2px rgb(168, 165, 165);
   width: 100%;
+}
+.navbar-brand {
+  margin-left: 130px;
 }
 </style>
