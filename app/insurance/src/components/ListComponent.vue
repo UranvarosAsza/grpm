@@ -13,7 +13,7 @@
           <th><div class="header">Dátum</div></th>
           <th><div class="header">Összeg</div></th>
           <th><div class="header">Státusz</div></th>
-          <th><div class="header">(gombok)</div></th>
+          <th><div class="header"></div></th>
         </tr>
       </thead>
       <tbody>
@@ -25,6 +25,8 @@
           :dateOfPayment="payment.dateOfPayment"
           :value="payment.value"
           :state="payment.state"
+          :attachmentId="payment.attachmentId"
+          :paymentValidUntil="payment.paymentValidUntil"
         />
       </tbody>
     </table>
@@ -46,7 +48,7 @@ export default {
   },
   mounted() {
     this.loadPayments()
-    //console.log(this.Payments)
+    console.log(this.Payments)
   },
   methods: {
     loadPayments() {
@@ -58,9 +60,10 @@ export default {
 
 <style>
 .header {
-  padding-left: 20px;
+  margin-bottom: 16px;
 }
 .selector p {
+  font-size: 16px !important;
   display: inline;
   margin-left: 15px;
   margin-right: 15px;

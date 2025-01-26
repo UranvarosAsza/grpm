@@ -17,14 +17,14 @@
     "paymentValidUntil": "2024.06.20.",
     "value": 20000,
     "state": "Succesfull",
-    "attachmentId": 124
+    "attachmentId": ""
   },
   {
     "paymentId": 3,
     "userId": 1,
     "paymentMethod": "card",
     "dateOfPayment": "2024.06.20.",
-    "paymentValidUntil": "2024.9.20.",
+    "paymentValidUntil": "2024.09.20.",
     "value": 20000,
     "state": "Unsuccesfull",
     "attachmentId": 125
@@ -37,7 +37,7 @@
     "paymentValidUntil": "2024.12.20.",
     "value": 23000,
     "state": "Succesfull",
-    "attachmentId": 1255
+    "attachmentId": ""
   },
   {
     "paymentId": 5,
@@ -47,6 +47,6 @@
     "paymentValidUntil": "2025.02.20.",
     "value": 23000,
     "state": "Succesfull",
-    "attachmentId": 1256
+    "attachmentId": ""
   }
 ]
