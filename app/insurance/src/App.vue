@@ -30,18 +30,21 @@ export default {
 
   <main class="container-fluid">
     <div class="row">
-      <div class="d-none d-md-block col-md-1"></div>
+      <div class="d-none d-md-block col-lg-1"></div>
       <div
         :class="[
           'col-md-3',
+          'col-xl-3',
+          'col-xxl-2',
           isSidebarVisibleOnMobile ? 'col-12 sidebar-visible-mobile' : 'd-none d-md-block',
         ]"
       >
         <SideBarComponent />
       </div>
-      <div :class="['col-md-8', { 'col-12': !isSidebarVisibleOnMobile }]">
+      <div :class="['col-md-8', 'col-xl-8', 'col-xxl-7', { 'col-12': !isSidebarVisibleOnMobile }]">
         <ListComponent />
       </div>
+      <div class="d-none d-md-block col-xxl-1"></div>
     </div>
   </main>
 </template>
