@@ -1,6 +1,11 @@
 <template>
   <tr class="payment">
-    <td>{{ paymentId }}</td>
+    <td>
+      <button class="btn">
+        <img src="../../resources/images/chevron-right.svg" />
+      </button>
+      {{ paymentId }}
+    </td>
     <td>{{ paymentMethodDisplay }}</td>
     <td>{{ dateOfPayment }}</td>
     <td class="value">{{ value }} Ft</td>
@@ -96,11 +101,11 @@ export default {
       }
     },
     hasAttachmentData() {
-      return !!this.attachmentId // Ha van attachmentId, akkor true
+      return !!this.attachmentId
     },
   },
   mounted() {
-    console.log(this.attachmentId)
+    // console.log(this.attachmentId)
   },
   methods: {
     toggleDetails() {
@@ -122,7 +127,7 @@ th {
 
 .attachment,
 .details {
-  box-shadow: 3px 3px 3px 3px rgb(168, 165, 165);
+  box-shadow: 2px 2px 5px rgb(168, 165, 165);
   background-color: #ffffff;
 }
 
@@ -131,7 +136,7 @@ th {
   margin-bottom: 16px !important;
   height: 79px;
   background-color: #ffffff;
-  box-shadow: 3px 3px 3px 3px rgb(168, 165, 165);
+  box-shadow: 2px 2px 5px rgb(168, 165, 165);
 }
 .payment > td {
   padding-left: 20px;

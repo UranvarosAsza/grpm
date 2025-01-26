@@ -48,7 +48,7 @@ export default {
   },
   mounted() {
     this.loadPayments()
-    console.log(this.Payments)
+    //console.log(this.Payments)
   },
   methods: {
     loadPayments() {
@@ -73,8 +73,10 @@ table {
   margin-right: 15px;
 }
 .selector {
+  background-color: #ffffff;
   padding-top: 40px;
   padding-bottom: 30px;
+  border-bottom: 3px solid #f1f2f4;
 }
 .list {
   background-color: #fafafc;
@@ -83,11 +85,15 @@ table {
   font-size: 14px;
   font-weight: 600;
   color: #283168;
+  padding-bottom: 30px;
+  border-bottom: 3px solid #01bba1;
 }
 .notactivated {
   font-size: 14px;
   font-weight: 400;
   color: #283168;
+  padding-bottom: 30px;
+  border-bottom: 3xp solid #f1f2f4;
 }
 table {
   width: 100%;

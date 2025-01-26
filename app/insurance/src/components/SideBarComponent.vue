@@ -86,7 +86,6 @@ export default {
   margin-top: 5px;
   background-color: #ffffff;
   height: 100%;
-  margin-left: 130px;
   padding-left: 20px;
   text-align: left;
   box-shadow: 3px 3px 3px 3px rgb(168, 165, 165);

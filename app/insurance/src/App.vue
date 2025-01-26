@@ -9,22 +9,37 @@ export default {
     NavbarComponent,
     SideBarComponent,
   },
+  data() {
+    return {
+      isSidebarVisibleOnMobile: false,
+    }
+  },
+  methods: {
+    toggleSidebar() {
+      this.isSidebarVisibleOnMobile = !this.isSidebarVisibleOnMobile
+      //console.log('is sidebarVisible' + this.isSidebarVisibleOnMobile)
+    },
+  },
 }
 </script>
 
 <template>
   <header>
-    <NavbarComponent />
+    <NavbarComponent @toggleSidebar="toggleSidebar" />
   </header>
 
   <main class="container-fluid">
     <div class="row">
-      <!-- SideBarComponent: 3 oszlop széles minden nézeten nagyobb mint mobil -->
-      <div class="col-md-4 d-none d-md-block">
+      <div class="d-none d-md-block col-md-1"></div>
+      <div
+        :class="[
+          'col-md-3',
+          isSidebarVisibleOnMobile ? 'col-12 sidebar-visible-mobile' : 'd-none d-md-block',
+        ]"
+      >
         <SideBarComponent />
       </div>
-      <!-- ListComponent: 8 oszlop széles, mobilon 12 -->
-      <div class="col-md-8 col-12">
+      <div :class="['col-md-8', { 'col-12': !isSidebarVisibleOnMobile }]">
         <ListComponent />
       </div>
     </div>
