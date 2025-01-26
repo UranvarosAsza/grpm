@@ -13,7 +13,8 @@
             <img src="../../resources/images/three-dots.svg" alt="Menu" />
           </button>
           <button class="btn">
-            <img src="../../resources/images/arrow-right-circle.svg" /> Kilépés
+            <img src="../../resources/images/arrow-right-circle.svg" />
+            <span class="exitText"> Kilépés</span>
           </button>
         </div>
       </div>
@@ -33,9 +34,21 @@ export default {
 </script>
 
 <style>
+@media (max-width: 768px) {
+  .navbar {
+    max-height: 50px;
+  }
+  .exitText {
+    display: none;
+  }
+  .logo {
+    height: 30px;
+  }
+}
+
 .sideBarInMobile {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: #f1f2f4;
   display: flex;

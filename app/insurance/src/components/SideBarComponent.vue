@@ -75,8 +75,7 @@ export default {
   color: #3d424c;
 }
 .userDetails > div {
-  margin-bottom: 12px;
-  margin-top: 20px;
+  margin: 20px 0 12px 0;
 }
 .userDetails > div p {
   margin: 4px 0;

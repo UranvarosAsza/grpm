@@ -59,45 +59,74 @@ export default {
 </script>
 
 <style>
+@media (max-width: 768px) {
+  .selector {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 60px;
+    font-size: 14px;
+  }
+  .selector p {
+    flex: 1 1;
+    text-align: center;
+    margin: 0;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  .activated,
+  .notactivated {
+    padding-bottom: 15px !important;
+  }
+  .activated {
+    border-bottom: 3px solid #01bba1;
+  }
+  table th {
+    display: none;
+  }
+}
+
 table {
+  width: 100%;
   border-collapse: separate;
   border-spacing: 0 16px;
 }
+
 .header {
   margin-bottom: 16px;
 }
-.selector p {
-  font-size: 16px !important;
-  display: inline;
-  margin-left: 15px;
-  margin-right: 15px;
-}
+
 .selector {
   background-color: #ffffff;
-  padding-top: 40px;
-  padding-bottom: 30px;
+  padding: 40px 0 30px;
   border-bottom: 3px solid #f1f2f4;
 }
+
+.selector p {
+  font-size: 16px;
+  display: inline;
+  margin: 0 15px;
+}
+
 .list {
   background-color: #fafafc;
 }
-.activated {
-  font-size: 14px;
-  font-weight: 600;
-  color: #283168;
-  padding-bottom: 30px;
-  border-bottom: 3px solid #01bba1;
-}
+
+.activated,
 .notactivated {
   font-size: 14px;
   font-weight: 400;
   color: #283168;
   padding-bottom: 30px;
-  border-bottom: 3xp solid #f1f2f4;
+  border-bottom: 3px solid #f1f2f4;
 }
-table {
-  width: 100%;
+
+.activated {
+  font-weight: 600;
+  border-bottom: 3px solid #01bba1;
 }
+
 th {
   color: #6f7381;
   font-weight: 400;

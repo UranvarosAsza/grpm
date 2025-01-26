@@ -1,5 +1,5 @@
 <template>
-  <tr class="payment">
+  <tr class="payment d-none d-md-table-row">
     <td>
       <button class="btn">
         <img src="../../resources/images/chevron-right.svg" />
@@ -8,7 +8,7 @@
     </td>
     <td>{{ paymentMethodDisplay }}</td>
     <td>{{ dateOfPayment }}</td>
-    <td class="value">{{ value }} Ft</td>
+    <td class="value">{{ new Intl.NumberFormat('hu-HU').format(value) }} Ft</td>
     <td><span :class="stateClass"></span> {{ stateDisplay }}</td>
     <td class="buttons">
       <span>
@@ -23,11 +23,11 @@
 
       <button class="btn" @click="toggleDetails" :aria-expanded="isOpen">
         <img v-if="isOpen" src="../../resources/images/chevron-up.svg" />
-        <img v-else src="../../resources//images/chevron-down.svg" />
+        <img v-else src="../../resources/images/chevron-down.svg" />
       </button>
     </td>
   </tr>
-  <tr v-if="isOpen" class="details">
+  <tr v-if="isOpen" class="details d-none d-md-table-row">
     <td colspan="6" class="py-2">
       <table class="subtable">
         <thead>
@@ -40,14 +40,14 @@
         <tbody>
           <tr>
             <td>{{ dateOfPayment }} - {{ paymentValidUntil }}</td>
-            <td>{{ value }}</td>
-            <td class="value">{{ value }}</td>
+            <td>{{ new Intl.NumberFormat('hu-HU').format(value) }}</td>
+            <td class="value">{{ new Intl.NumberFormat('hu-HU').format(value) }}</td>
           </tr>
         </tbody>
       </table>
     </td>
   </tr>
-  <tr v-if="isOpen & hasAttachmentData" class="attachment">
+  <tr v-if="isOpen & hasAttachmentData" class="attachment d-none d-md-table-row">
     <td colspan="6" class="py-2">
       <div>Csatolmány</div>
       <div>
@@ -58,6 +58,65 @@
       </div>
     </td>
   </tr>
+
+  <div class="mobilePayment d-block d-md-none shadow-sm rounded bg-white p-3">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="mobileDot">
+        <span :class="stateClass"></span>
+      </div>
+
+      <div class="mobileData text-center">
+        <p>{{ stateDisplay }}</p>
+        <p class="value">{{ new Intl.NumberFormat('hu-HU').format(value) }} Ft</p>
+        <p>
+          Fizetési dátum {{ dateOfPayment }}
+          <span>
+            <img v-if="hasAttachmentData" src="../../resources/images/attachment.png" />
+            <img
+              v-else
+              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+              style="width: 17px; height: 17px"
+              alt="Placeholder"
+            />
+          </span>
+        </p>
+      </div>
+
+      <div class="mobileButton">
+        <button class="btn" @click="toggleDetails" :aria-expanded="isOpen">
+          <img v-if="isOpen" src="../../resources/images/chevron-up.svg" />
+          <img v-else src="../../resources/images/chevron-down.svg" />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div v-if="isOpen" class="mobileDetails d-block d-md-none shadow-sm rounded bg-white p-3">
+    <div>
+      <p>Státusz</p>
+      <p>{{ stateDisplay }}</p>
+    </div>
+    <div>
+      <p>Azonosító</p>
+      <p>{{ paymentId }}</p>
+    </div>
+    <div>
+      <p>Hogyan</p>
+      <p>{{ paymentMethodDisplay }}</p>
+    </div>
+  </div>
+  <div
+    v-if="isOpen & hasAttachmentData"
+    class="mobileAttachment d-block d-md-none shadow-sm rounded bg-white p-3"
+  >
+    <div>Csatolmány</div>
+    <div class="attachmentContent">
+      <img class="icon" src="../../resources/images/file-earmark-pdf-fill.svg" />
+      <p>Fizetési nyugta letöltése</p>
+      <a class="downloadIcon" href="../../resources/documents/CsatolmányPélda.pdf" download>
+        <img src="../../resources/images/download.svg" />
+      </a>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -116,6 +175,89 @@ export default {
 </script>
 
 <style>
+/*Mobile view */
+.mobilePayment,
+.mobileAttachment,
+.mobileDetails {
+  width: 100%;
+
+  display: flex;
+  background-color: white;
+  box-shadow: 2px 2px 5px rgb(168, 165, 165);
+  border-radius: 5px;
+  margin-left: 15px;
+  margin-bottom: 16px;
+  margin-right: 15px;
+}
+
+.mobilePayment .mobileDot {
+  flex: 0 0 auto;
+  margin-right: 1rem;
+}
+
+.mobilePayment .mobileDot span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.mobilePayment .mobileData {
+  flex: 1;
+}
+
+.mobilePayment .mobileData p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.mobilePayment .mobileData .value {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.mobilePayment .mobileButton {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.mobilePayment .mobileButton .btn {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.mobilePayment .mobileButton img {
+  width: 20px;
+  height: 20px;
+}
+.mobileDetails div p:nth-of-type(1) {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.mobileDetails div p:nth-of-type(2) {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.mobileDetails div:last-of-type p:nth-of-type(2) {
+  margin-bottom: 0;
+}
+
+.mobileAttachment .attachmentContent {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.mobileAttachment .attachmentContent p {
+  margin: 0;
+  font-size: 14px !important;
+}
+
+/*Desktop view  */
 .subtable td,
 th {
   padding-left: 20px;
@@ -127,11 +269,13 @@ th {
 
 .attachment,
 .details {
+  border-radius: 5px;
   box-shadow: 2px 2px 5px rgb(168, 165, 165);
   background-color: #ffffff;
 }
 
 .payment {
+  border-radius: 5px;
   margin-left: 25px;
   margin-bottom: 16px !important;
   height: 79px;
