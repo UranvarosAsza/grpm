@@ -40,8 +40,8 @@
         <tbody>
           <tr>
             <td>{{ dateOfPayment }} - {{ paymentValidUntil }}</td>
-            <td>{{ new Intl.NumberFormat('hu-HU').format(value) }}</td>
-            <td class="value">{{ new Intl.NumberFormat('hu-HU').format(value) }}</td>
+            <td>{{ new Intl.NumberFormat('hu-HU').format(value) }} Ft</td>
+            <td class="value">{{ new Intl.NumberFormat('hu-HU').format(value) }} Ft</td>
           </tr>
         </tbody>
       </table>
