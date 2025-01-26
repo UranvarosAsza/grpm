@@ -59,6 +59,10 @@ export default {
 </script>
 
 <style>
+table {
+  border-collapse: separate;
+  border-spacing: 0 16px;
+}
 .header {
   margin-bottom: 16px;
 }
