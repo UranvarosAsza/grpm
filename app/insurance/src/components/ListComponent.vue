@@ -1,15 +1,19 @@
 <template>
   <div class="list">
-    <h2>Fizetési előzmények</h2>
+    <div class="selector">
+      <p class="notactivated">Fizetendő tételek</p>
+      <p class="notactivated">Eseti díj befizetése</p>
+      <p class="activated">Fizetési előzmények</p>
+    </div>
     <table>
       <thead>
         <tr>
-          <th>Azonosító</th>
-          <th>Befizetés módja</th>
-          <th>Dátum</th>
-          <th>Összeg</th>
-          <th>Státusz</th>
-          <th>(gombok)</th>
+          <th><div class="header">Azonosító</div></th>
+          <th><div class="header">Befizetés módja</div></th>
+          <th><div class="header">Dátum</div></th>
+          <th><div class="header">Összeg</div></th>
+          <th><div class="header">Státusz</div></th>
+          <th><div class="header">(gombok)</div></th>
         </tr>
       </thead>
       <tbody>
@@ -53,7 +57,36 @@ export default {
 </script>
 
 <style>
-list {
+.header {
+  padding-left: 20px;
+}
+.selector p {
+  display: inline;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.selector {
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+.list {
   background-color: #fafafc;
+}
+.activated {
+  font-size: 14px;
+  font-weight: 600;
+  color: #283168;
+}
+.notactivated {
+  font-size: 14px;
+  font-weight: 400;
+  color: #283168;
+}
+table {
+  width: 100%;
+}
+th {
+  color: #6f7381;
+  font-weight: 400;
 }
 </style>

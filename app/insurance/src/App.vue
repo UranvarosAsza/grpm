@@ -33,6 +33,7 @@ export default {
 
 <style scoped>
 main {
+  height: 100%;
   background-color: #fafafc;
 }
 </style>
